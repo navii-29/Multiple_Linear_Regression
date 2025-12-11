@@ -61,3 +61,61 @@ The main steps covered in the notebook are:[file:2]
 1. Place `Algerian_Fire.csv` in the same directory as the notebook.[file:2]  
 2. Create and activate a Python environment:
 
+# Algerian Forest Fire – Model Training
+
+This notebook trains machine learning models to predict the occurrence of forest fires in Algeria using cleaned fire weather data derived from the original Algerian Forest Fires dataset.[file:1]
+
+## Project Overview
+
+- Goal: Build a supervised learning model that predicts whether a day is classified as “fire” or “not fire”.[file:1]
+- Input: Meteorological and fire weather indices such as temperature, relative humidity, wind speed, rainfall, and FWI components.[file:1]
+- Output: Binary class label indicating fire risk for a given day.[file:1]
+
+## Dataset
+
+The notebook uses `algerian_fire_cleaned.csv`, a preprocessed version of the Algerian Forest Fires dataset.[file:1]
+
+Key features include:[file:1]  
+
+- Date components: `day`, `month`, `year`  
+- Weather variables: `Temperature`, `RH` (relative humidity), `Ws` (wind speed), `Rain`  
+- FWI components: `FFMC`, `DMC`, `DC`, `ISI`, `BUI`, `FWI`  
+- Targets: `Classes` (fire / not fire), `Region` (encoded region id)[file:1]
+
+## Workflow
+
+The notebook roughly follows these steps:[file:1]
+
+1. **Import libraries**  
+   Uses `pandas`, `numpy`, `seaborn`, and `matplotlib` for data handling and visualization.[file:1]
+
+2. **Load data**  
+   Reads the cleaned dataset with:  
+   `data = pd.read_csv("algerian_fire_cleaned.csv")`.[file:1]
+
+3. **Exploratory data analysis**  
+   - Head, info and descriptive statistics.  
+   - Distribution plots and pairwise correlations between meteorological variables and FWI components.[file:1]  
+   - Heatmaps to inspect correlation strength between features and the target class.[file:1]
+
+4. **Data preprocessing**  
+   - Handling of any remaining missing values or inconsistencies (if present in the cleaned file).  
+   - Encoding categorical variables such as `Classes` and `Region` into numeric form.[file:1]  
+   - Feature scaling or normalization where required (e.g., for distance‑based models).[file:1]
+
+5. **Model training**  
+   - Splits the dataset into training and test sets.  
+   - Trains one or more classification models (e.g., logistic regression, tree‑based models, or ensemble methods) on the engineered features.[file:1]  
+   - Tunes hyperparameters and evaluates performance using metrics such as accuracy, precision, recall, F1‑score, and confusion matrix.[file:1]
+
+6. **Evaluation and insights**  
+   - Visualizes performance metrics and confusion matrices to understand model behavior on fire vs. not‑fire days.[file:1]  
+   - Analyzes feature importance or coefficients to understand which variables most influence fire occurrence (e.g., `FFMC`, `ISI`, `FWI`, temperature, and humidity).[[file:1]]
+
+## How to Run
+
+1. Place `algerian_fire_cleaned.csv` in the same directory as the notebook.[file:1]  
+2. Create and activate a Python environment (example with `conda`):
+
+
+
